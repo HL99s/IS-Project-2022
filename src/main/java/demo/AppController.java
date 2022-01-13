@@ -30,8 +30,8 @@ public class AppController {
         repositoryPatient.save(new Patient("rosa", "fiore", LocalDate.of(1985,2,5), "verona"));
         repositoryPatient.save(new Patient("luca", "salvo", LocalDate.of(1997,8,8), "brescia"));
         repositoryPatient.save(new Patient("mario", "pasqua", LocalDate.of(1996,7,13), "verona"));
-        repositoryTreatment.save(new Treatment(1L,"T1", new Date(1,1,1,1,1,1)));
-        repositoryTreatment.save(new Treatment(1L,"T2", new Date()));
+        repositoryTreatment.save(new Treatment(1L,"T1", new Date(122,0,10,15,0,0)));
+        repositoryTreatment.save(new Treatment(1L,"T2", new Date(122,0,11,15,0,0)));
         repositoryTreatment.save(new Treatment(2L,"T2", new Date()));
         repositoryTreatment.save(new Treatment(2L,"T4", new Date()));
         repositoryTreatment.save(new Treatment(3L,"T3", new Date()));
@@ -121,62 +121,46 @@ public class AppController {
         return "redirect:/home";
     }
 
-    @RequestMapping("/edit")
-    public String edit(
+    @RequestMapping("/editPrescription")
+    public String editPrescription(
             @RequestParam(name="id", required=true) Long id,
             Model model) {
-        Optional<Patient> result = repositoryPatient.findById(id);
+        Optional<Prescription> result = repositoryPrescription.findById(id);
         if (result.isPresent()) {
-            Patient Patient = result.get();
-            model.addAttribute("Patient", Patient);
-            return "edit";
+            Prescription prescription = result.get();
+            model.addAttribute("prescription", prescription);
+            return "editPrescription";
         }
         else
             return "notfound";
     }
 
-    @RequestMapping("/update")
-    public String update(
+    @RequestMapping("/updatePrescription")
+    public String updatePrescription(
             @RequestParam(name="id", required=true) Long id,
-            @RequestParam(name="firstname", required=true) String firstname,
-            @RequestParam(name="lastname", required=true) String lastname,
-            Model model) {
-        Optional<Patient> result = repositoryPatient.findById(id);
+            @RequestParam(name="idPatient", required=true) Long idPatient,
+            @RequestParam(name="idTreatment", required=true) Long idTreatment,
+            @RequestParam(name="type", required=true) String type,
+            @RequestParam(name="comment", required=true) String comment) {
+        Optional<Prescription> result = repositoryPrescription.findById(id);
         if (result.isPresent()) {
-            repositoryPatient.delete(result.get());
-            //Patient Patient = new Patient(firstname,lastname);
-            //repositoryPatient.save(Patient);
-            return "redirect:/list";
+            repositoryPrescription.delete(result.get());
+            repositoryPrescription.save(new Prescription(idPatient,idTreatment,type,comment));
+            return "redirect:/showPrescriptions";
         }
         else
             return "notfound";
     }
 
-   @RequestMapping("/delete")
-    public String delete(
+    @RequestMapping("/deletePrescription")
+    public String deletePrescription(
             @RequestParam(name="id", required=true) Long id) {
-        Optional<Patient> result = repositoryPatient.findById(id);
+        Optional<Prescription> result = repositoryPrescription.findById(id);
         if (result.isPresent()){
-            repositoryPatient.delete(result.get());
-            return "redirect:/list";
+            repositoryPrescription.delete(result.get());
+            return "redirect:/showPrescriptions";
         }
         else
             return "notfound";
     }
-
-
-    /*@RequestMapping("/show1")
-    public String show1(
-            @RequestParam(name="id", required=true) Long id,
-            Model model) {
-        Optional<Patient> result = repositoryPatient.findById(id);
-        if (result.isPresent()){
-            Patient Patient = result.get();
-            model.addAttribute("Patient", Patient);
-            return "show1";
-        }
-        else
-            return "notfound";
-    }*/
-
 }

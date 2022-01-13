@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mentcare</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Prescriptions list</h1>
+
+<table border="5" background-color="blue">
+  <thead>
+  <tr>
+    <th bgcolor="aquared">Id</th>
+    <th>IdTreatment</th>
+    <th>Date</th>
+    <th>Id Patient</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Type</th>
+    <th>Comment</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each = "prescription: ${completePrescriptions}">
+    <td th:text = "${prescription.getPrescription().getId()}"> <b>10 </b></td>
+    <td th:text = "${prescription.getTreatment().getId()}"> 1 </td>
+    <td th:text = "${prescription.getTreatment().getDate()}"> 1 </td>
+    <td th:text = "${prescription.getPatient().getId()}"> 3 </td>
+    <td th:text = "${prescription.getPatient().getFirstName()}">Type</td>
+    <td th:text = "${prescription.getPatient().getLastName()}"> Comment </td>
+    <td th:text = "${prescription.getPrescription().getType()}"> Comment </td>
+    <td th:text = "${prescription.getPrescription().getComment()}"> Comment </td>
+    <td> <a href="editPrescription?id=10" th:href="@{editPrescription(id = ${prescription.getPrescription().getId()})}"> Edit</a> </td>
+    <td> <a href="deletePrescription?id=10" th:href="@{deletePrescription(id = ${prescription.getPrescription().getId()})}"> Delete</a> </td>
+  </tr>
+  </tbody>
+</table>
+<br>
+
+<a href="home">Back to home</a>
+
+
+</body>
+</html>
