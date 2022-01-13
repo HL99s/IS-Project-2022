@@ -20,9 +20,11 @@
   <tbody>
   <tr th:each = "treatment: ${treatments}">
     <td th:text = "${treatment.getId()}"> <b>10 </b></td>
-    <td th:text = "${treatment.getidPatient()}"> John </td>
-    <td th:text = "${treatment.getDate()}"> Smith </td>
-    <td th:text = "${treatment.getType()}">05/06/1960</td>
+    <td th:text = "${treatment.getidPatient()}"> 1 </td>
+    <td th:text = "${treatment.getDate()}"> 05/06/1960 </td>
+    <td th:text = "${treatment.getType()}">Template</td>
+    <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getId()})}"> Create prescription</a> </td>
+
   </tr>
   </tbody>
 </table>

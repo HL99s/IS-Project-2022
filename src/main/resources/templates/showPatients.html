@@ -25,6 +25,7 @@
       <td th:text = "${patient.getLastName()}"> Smith </td>
       <td th:text = "${patient.getBirthDate()}">05/06/1960</td>
       <td th:text = "${patient.getResidence()}">New York</td>
+      <td> <a href="patientInfo?id=10" th:href="@{patientInfo(id=${patient.id})}">show info</a></td>
   </tr>
   </tbody>
 </table>

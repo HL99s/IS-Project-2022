@@ -19,7 +19,7 @@ public class AppController {
     @Autowired
     private PrescriptionRepository repositoryPrescription;
 
-    private void initReporitories(){
+    private void initRepo(){
         repositoryPatient.save(new Patient("marcello", "de vincenzi", LocalDate.of(1999,12,7), "gazzo vigarello"));
         repositoryPatient.save(new Patient("giacomo", "gatto", LocalDate.of(1999,9,14), "cerea"));
         repositoryPatient.save(new Patient("mario", "rossi", LocalDate.of(1989,5,10), "verona"));
@@ -44,11 +44,12 @@ public class AppController {
         repositoryTreatment.save(new Treatment(8L,"T3", new Date()));
 
         repositoryPrescription.save(new Prescription(1L, 1L,"prova","ciao"));
+        repositoryPrescription.save(new Prescription(1L, 2L,"prova1","ciao1"));
     }
 
     @RequestMapping("/")
     public String index(){
-        initReporitories();
+        initRepo();
         return "login";
     }
 
