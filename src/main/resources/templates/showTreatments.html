@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mentcare</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Patients lists</h1>
+
+<table border="5" background-color="blue">
+  <thead>
+  <tr>
+    <th bgcolor="aquared">Id</th>
+    <th>Id Patient</th>
+    <th>Date</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each = "treatment: ${treatments}">
+    <td th:text = "${treatment.getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getidPatient()}"> John </td>
+    <td th:text = "${treatment.getDate()}"> Smith </td>
+    <td th:text = "${treatment.getType()}">05/06/1960</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<a href="home">Back</a>
+
+</body>
+</html>
