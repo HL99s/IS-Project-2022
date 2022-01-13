@@ -9,14 +9,14 @@
 <h1>Create a new Prescription</h1>
 
 <form action="createPrescription" method="post">
-    IdPatient:<input type="text" name="idPatient"><br>
-    IdTreatment:<input type="text" name="idTreatment"><br>
+    IdPatient:<input type="text" name="idPatient" th:value="${idPatient}" readonly="readonly"><br>
+    IdTreatment:<input type="text" name="idTreatment" th:value="${idTreatment}" readonly="readonly"><br>
     Type:<input type="text" name="type"><br>
     Comment:<input type="text" name="comment"><br>
     <input type="submit" />
 </form>
-
-<a href="list"> Show the list </a>
+<br>
+<a href="treatmentsList">Back to All Treatments list</a><br>
 
 </body>
 </html>

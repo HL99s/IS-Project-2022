@@ -13,17 +13,22 @@
   <tr>
     <th bgcolor="red">Id</th>
     <th bgcolor="red">Id Patient</th>
+    <th bgcolor="red">First Name</th>
+    <th bgcolor="red">Last Name</th>
     <th bgcolor="red">Date</th>
     <th bgcolor="red">Type</th>
+    <th bgcolor="red">Prescription</th>
   </tr>
   </thead>
   <tbody>
-  <tr th:each = "treatment: ${dailys}">
-    <td th:text = "${treatment.getId()}"> <b>10 </b></td>
-    <td th:text = "${treatment.getidPatient()}"> John </td>
-    <td th:text = "${treatment.getDate()}"> Smith </td>
-    <td th:text = "${treatment.getType()}">05/06/1960</td>
-  </tr>
+  <tr th:each = "treatment: ${completeTreatments}">
+    <td th:text = "${treatment.getTreatment().getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getPatient().getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getPatient().getFirstName()}"> John </td>
+    <td th:text = "${treatment.getPatient().getLastName()}"> Smith </td>
+    <td th:text = "${treatment.getTreatment().getDate()}">05/06/1960</td>
+    <td th:text = "${treatment.getTreatment().getType()}"> Type1 </td>
+    <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getTreatment().getId()})}">New prescription</a> </td>
   </tbody>
 </table>
 <br>

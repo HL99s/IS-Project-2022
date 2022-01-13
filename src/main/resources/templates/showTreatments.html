@@ -13,17 +13,23 @@
   <tr>
     <th bgcolor="aquared">Id</th>
     <th>Id Patient</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Date</th>
     <th>Type</th>
+    <th>Prescription</th>
+
   </tr>
   </thead>
   <tbody>
-  <tr th:each = "treatment: ${treatments}">
-    <td th:text = "${treatment.getId()}"> <b>10 </b></td>
-    <td th:text = "${treatment.getidPatient()}"> 1 </td>
-    <td th:text = "${treatment.getDate()}"> 05/06/1960 </td>
-    <td th:text = "${treatment.getType()}">Template</td>
-    <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getId()})}"> Create prescription</a> </td>
+  <tr th:each = "treatment: ${completeTreatments}">
+    <td th:text = "${treatment.getTreatment().getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getPatient().getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getPatient().getFirstName()}"> John </td>
+    <td th:text = "${treatment.getPatient().getLastName()}"> Smith </td>
+    <td th:text = "${treatment.getTreatment().getDate()}">05/06/1960</td>
+    <td th:text = "${treatment.getTreatment().getType()}"> Type1 </td>
+    <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getTreatment().getId()})}">New prescription</a> </td>
 
   </tr>
   </tbody>
@@ -31,8 +37,11 @@
 <br>
 <a href="dailyTreatments">Show today's treatments</a><br>
 
+<form action="home">
+  <input type="submit" value="Back" />
+</form>
+<!--<a href="home">Back to home</a>-->
 
-<a href="home">Back</a>
 
 </body>
 </html>
