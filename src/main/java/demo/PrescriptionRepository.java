@@ -8,4 +8,6 @@ public interface PrescriptionRepository extends CrudRepository<Prescription, Lon
 
 
         Prescription findById(long id);
+
+        List<Prescription> findByIdPatient(long idPatient);
     }

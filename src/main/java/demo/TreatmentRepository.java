@@ -7,5 +7,4 @@ import java.util.List;
 public interface TreatmentRepository extends CrudRepository<Treatment, Long> {
 
         Treatment findById(long id);
-
     }

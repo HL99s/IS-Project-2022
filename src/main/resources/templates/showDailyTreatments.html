@@ -5,20 +5,19 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-<body>
-<h1>Treatments list</h1>
+<body bgcolor="Blue">
+<h1>Today's treatments list</h1>
 
 <table border="5" background-color="blue">
   <thead>
   <tr>
-    <th bgcolor="aquared">Id</th>
-    <th>Id Patient</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Date</th>
-    <th>Type</th>
-    <th>Prescription</th>
-
+    <th bgcolor="red">Id</th>
+    <th bgcolor="red">Id Patient</th>
+    <th bgcolor="red">First Name</th>
+    <th bgcolor="red">Last Name</th>
+    <th bgcolor="red">Date</th>
+    <th bgcolor="red">Type</th>
+    <th bgcolor="red">Prescription</th>
   </tr>
   </thead>
   <tbody>
@@ -30,18 +29,11 @@
     <td th:text = "${treatment.getTreatment().getDate()}">05/06/1960</td>
     <td th:text = "${treatment.getTreatment().getType()}"> Type1 </td>
     <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getTreatment().getId()})}">New prescription</a> </td>
-
-  </tr>
   </tbody>
 </table>
 <br>
-<a href="dailyTreatments">Show today's treatments</a><br>
-
-<form action="home">
-  <input type="submit" value="Back" />
-</form>
-<!--<a href="home">Back to home</a>-->
-
+<a href="treatmentsList">Back to All Treatments list</a><br>
+<a href="home">Back to home</a>
 
 </body>
 </html>
