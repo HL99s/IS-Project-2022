@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>MVC Web application</title>
+    <title>Mentcare application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
@@ -9,10 +9,10 @@
 <h1>Create a new Prescription</h1>
 
 <form action="createPrescription" method="post">
-    IdPatient:<input type="text" name="idPatient" th:value="${idPatient}" readonly="readonly"><br>
-    IdTreatment:<input type="text" name="idTreatment" th:value="${idTreatment}" readonly="readonly"><br>
-    Type:<input type="text" name="type"><br>
-    Comment:<input type="text" name="comment"><br>
+    IdPatient:<input type="text" name="idPatient" th:value="${idPatient}" readonly="readonly"><br><br>
+    IdTreatment:<input type="text" name="idTreatment" th:value="${idTreatment}" readonly="readonly"><br><br>
+    Type:<input type="text" name="type"><br><br>
+    Comment:<input type="text" name="comment"><br><br>
     <input type="submit" />
 </form>
 <br>
