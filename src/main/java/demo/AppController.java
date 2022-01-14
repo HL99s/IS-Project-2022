@@ -110,8 +110,6 @@ public class AppController {
     }
     @RequestMapping("/treatmentsList")
     public String treatmentsList(Model model){
-        List<Treatment> treatments = new LinkedList<>();
-        List<Optional <Patient>> patientsList = new ArrayList<>();
         List<TreatmentWithPatient> completeTreatments = new LinkedList<>();
 
         for(Treatment treatment: repositoryTreatment.findAll()){
@@ -141,7 +139,6 @@ public class AppController {
 
     @RequestMapping("/showPrescriptions")
     public String showPrescriptions(Model model){
-        List<Prescription> prescriptionsList = new LinkedList<>();
         List<PrescriptionWithPatientAndTreatment> completePrescriptionsList = new ArrayList<>();
         for(Prescription prescription: repositoryPrescription.findAll()){
             completePrescriptionsList.add(
