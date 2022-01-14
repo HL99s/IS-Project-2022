@@ -61,7 +61,7 @@ public class AppController {
         if(name.equals(username) && pass.equals(password))
             return "home";
         else
-            return "login";
+            return "loginFailed";
     }
 
     @RequestMapping("/home")

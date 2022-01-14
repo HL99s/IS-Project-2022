@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Mentcare</title>
+  <title>Mentcare application</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-<body bgcolor="Blue">
+<body bgcolor="#add8e6">
 <h1>Today's treatments list</h1>
 
 <table border="5" background-color="blue">
@@ -31,9 +31,15 @@
     <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getTreatment().getId()})}">New prescription</a> </td>
   </tbody>
 </table>
+<br><br>
+
+<form action="treatmentsList">
+  <input type="submit" value="Back to All Treatments list" />
+</form>
 <br>
-<a href="treatmentsList">Back to All Treatments list</a><br>
-<a href="home">Back to home</a>
+<form action="home">
+  <input type="submit" value="Back to home" />
+</form>
 
 </body>
 </html>
