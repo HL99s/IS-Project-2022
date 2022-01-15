@@ -17,20 +17,33 @@ public class ShowTreatmentsPO extends PageObject{
     @FindBy(tagName = "table")
     private WebElement table;
 
-    @FindBy(xpath = "//table//tbody//td[2]")
-    private WebElement firstRow;
+    @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[1]")
+    private WebElement firstRowId;
 
-    public String getFirstRowName(){
-        return firstRow.getText();
+    @FindBy(xpath = "/html[1]/body[1]/form[2]/input[1]")
+    private WebElement backToHomeButton;
+
+    @FindBy(xpath = "/html[1]/body[1]/form[1]/input[1]")
+    private WebElement showDailyTreatments;
+
+    public String getMessage(){
+        return titleMessage.getText();
+    }
+
+    public String getFirstRowId(){
+        return firstRowId.getText();
     }
 
     public int getTableSize(){
         return table.findElements(By.tagName("tr")).size();
     }
 
-    public String getMessage(){
-        return titleMessage.getText();
+    public HomePO backToHome(){
+        backToHomeButton.click();
+        return new HomePO(driver);
     }
+
+
 
 
 }
