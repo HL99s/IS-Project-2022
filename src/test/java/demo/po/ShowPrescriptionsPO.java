@@ -40,7 +40,7 @@ public class ShowPrescriptionsPO extends PageObject{
     }
 
     public EditPrescriptionsPo editFirstRow(){
-        deleteFirstRowLink.click();
+        editFirstRowLink.click();
         return new EditPrescriptionsPo(driver);
     }
 

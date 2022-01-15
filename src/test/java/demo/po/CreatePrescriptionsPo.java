@@ -4,20 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EditPrescriptionsPo extends PageObject{
+public class CreatePrescriptionsPo extends PageObject{
 
-    public EditPrescriptionsPo(WebDriver driver){
+    public CreatePrescriptionsPo(WebDriver driver){
         super(driver);
     }
 
+
     @FindBy(xpath = "/html[1]/body[1]/h1[1]")
     private WebElement initialMessage;
-
-    @FindBy(name = "idPatient")
-    private WebElement idPatient;
-
-    @FindBy(name = "idTreatment")
-    private WebElement idTreatment;
 
     @FindBy(name = "type")
     private WebElement type;
@@ -25,7 +20,7 @@ public class EditPrescriptionsPo extends PageObject{
     @FindBy(name = "comment")
     private WebElement comment;
 
-    @FindBy(xpath = "/html[1]/body[1]/form[1]/input[6]")
+    @FindBy(xpath = "/html[1]/body[1]/form[1]/input[5]")
     private WebElement submit;
 
     @FindBy(xpath = "/html[1]/body[1]/form[2]/input[1]")
@@ -35,11 +30,7 @@ public class EditPrescriptionsPo extends PageObject{
         return this.initialMessage.getText();
     }
 
-    public void enterData(String idPatient, String idTreatment, String type, String comment){
-        this.idPatient.clear();
-        this.idTreatment.clear();
-        this.idPatient.sendKeys(idPatient);
-        this.idTreatment.sendKeys(idTreatment);
+    public void enterData(String type, String comment){
         this.type.clear();
         this.comment.clear();
         this.type.sendKeys(type);
@@ -51,8 +42,8 @@ public class EditPrescriptionsPo extends PageObject{
         return new ShowPrescriptionsPO(driver);
     }
 
-    public ShowPrescriptionsPO backToList(){
+    public ShowTreatmentsPO backToList(){
         backToListButton.click();
-        return new ShowPrescriptionsPO(driver);
+        return new ShowTreatmentsPO(driver);
     }
 }
