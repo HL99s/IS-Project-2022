@@ -51,5 +51,10 @@ public class ShowTreatmentsPO extends PageObject{
         return new HomePO(driver);
     }
 
+    public CreatePrescriptionsPo createPrescription(){
+    createPrescriptionLinkFirstRow.click();
+    return new CreatePrescriptionsPo(driver);
+    }
+
 
 }

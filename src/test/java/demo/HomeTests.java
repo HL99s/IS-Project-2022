@@ -21,6 +21,8 @@ public class HomeTests extends BaseTest{
         ShowPatientsPO patientsPage = homePage.showPatientsSubmit();
 
         assertEquals("Patients list", patientsPage.getMessage());
+
+
     }
 
     @Test

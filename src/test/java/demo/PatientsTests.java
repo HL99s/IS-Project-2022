@@ -1,8 +1,6 @@
 package demo;
 
-import demo.po.HomePO;
-import demo.po.InvalidLoginPO;
-import demo.po.LoginPO;
+import demo.po.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -19,6 +17,26 @@ public class PatientsTests extends BaseTest{
         HomePO homePage = loginPage.validSubmit();
 
         assertEquals("Hi, Welcome to Mentcare system", homePage.getMessage());
+
+        ShowPatientsPO patientsPage = homePage.showPatientsSubmit();
+
+        assertEquals("Patients list", patientsPage.getMessage());
+        assertEquals(11 , patientsPage.getTableSize());
+        assertEquals("1", patientsPage.getFirstRowId());
+
+        ShowPatientsInfoPO showInfoPage = patientsPage.showPatientsInfo();
+
+        assertEquals("Details of patient:", showInfoPage.getMessage());
+        assertEquals(3, showInfoPage.getTableSize());
+        assertEquals("1", showInfoPage.getFirstRowId());
+
+        ShowPatientsPO patientsPage1 = showInfoPage.backToListButton();
+
+        assertEquals("Patients list", patientsPage1.getMessage());
+
+        HomePO homePage1 = patientsPage1.backToHome();
+
+        assertEquals("Hi, Welcome to Mentcare system", homePage1.getMessage());
     }
 
 }

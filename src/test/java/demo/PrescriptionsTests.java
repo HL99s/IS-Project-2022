@@ -1,9 +1,6 @@
 package demo;
 
-import demo.po.HomePO;
-import demo.po.InvalidLoginPO;
-import demo.po.LoginPO;
-import demo.po.ShowPrescriptionsPO;
+import demo.po.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -68,6 +65,82 @@ public class PrescriptionsTests extends BaseTest{
 
         HomePO homePage1 = prescriptionsPage2.backToHome();
         assertEquals("Hi, Welcome to Mentcare system", homePage1.getMessage());
+    }
+
+    @Test
+    public void testCreatePrescriptionsByTreatmentsList(){
+        driver.get("http://localhost:8080/");
+        LoginPO loginPage = new LoginPO(driver);
+        assertEquals("Hi, Please Log-In to Mentcare system", loginPage.getMessage());
+
+        loginPage.enterCredentials("admin", "admin");
+        HomePO homePage = loginPage.validSubmit();
+
+        assertEquals("Hi, Welcome to Mentcare system", homePage.getMessage());
+
+        ShowTreatmentsPO treatmentsPage = homePage.showTreatmentsSubmit();
+
+        assertEquals("Treatments list", treatmentsPage.getMessage());
+
+        CreatePrescriptionsPo createPage = treatmentsPage.createPrescription();
+
+        assertEquals("Create a new Prescription", createPage.getMessage());
+
+        ShowTreatmentsPO treatmentsPage1 = createPage.backToList();
+
+        assertEquals("Treatments list", treatmentsPage1.getMessage());
+
+        CreatePrescriptionsPo createPage1 = treatmentsPage.createPrescription();
+
+        createPage1.enterData("T28", "COMMENTO AHAH");
+
+        ShowPrescriptionsPO prescriptionsPage = createPage1.validSubmit();
+
+        assertEquals("Prescriptions list", prescriptionsPage.getMessage());
+        assertEquals(4,  prescriptionsPage.getTableSize());
+        assertEquals("3", prescriptionsPage.getNewRowId());
+
+        HomePO homePage1 = prescriptionsPage.backToHome();
+
+        assertEquals("Hi, Welcome to Mentcare system", homePage1.getMessage());
+    }
+
+    @Test
+    public void testCreatePrescriptionsByDailyTreatmentsList(){
+        driver.get("http://localhost:8080/");
+        LoginPO loginPage = new LoginPO(driver);
+        assertEquals("Hi, Please Log-In to Mentcare system", loginPage.getMessage());
+
+        loginPage.enterCredentials("admin", "admin");
+        HomePO homePage = loginPage.validSubmit();
+
+        assertEquals("Hi, Welcome to Mentcare system", homePage.getMessage());
+
+        ShowTreatmentsPO treatmentsPage = homePage.showTreatmentsSubmit();
+
+        assertEquals("Treatments list", treatmentsPage.getMessage());
+
+        ShowDailyTreatmentsPO dailyTreatmentsPage = treatmentsPage.goToDailyTreatmentsList();
+
+        assertEquals("Today's treatments list", dailyTreatmentsPage.getMessage());
+
+        CreatePrescriptionsPo createPage = dailyTreatmentsPage.createPrescription();
+
+        assertEquals("Create a new Prescription", createPage.getMessage());
+
+        createPage.enterData("T28", "COMMENTO AHAH");
+
+        ShowPrescriptionsPO prescriptionsPage = createPage.validSubmit();
+
+        assertEquals("Prescriptions list", prescriptionsPage.getMessage());
+        assertEquals(4,  prescriptionsPage.getTableSize());
+        assertEquals("3", prescriptionsPage.getNewRowId());
+
+        HomePO homePage1 = prescriptionsPage.backToHome();
+
+        assertEquals("Hi, Welcome to Mentcare system", homePage1.getMessage());
+
+
     }
 
 }
