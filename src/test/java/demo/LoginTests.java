@@ -2,16 +2,16 @@ package demo;
 
 import demo.po.*;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class SystemTestPO extends BaseTest{
+public class LoginTests extends BaseTest{
 
     @Test
     public void testValidLogin(){
         driver.get("http://localhost:8080/");
         LoginPO loginPage = new LoginPO(driver);
+        assertEquals("Hi, Please Log-In to Mentcare system", loginPage.getMessage());
 
         loginPage.enterCredentials("admin", "admin");
         HomePO homePage = loginPage.validSubmit();
@@ -23,6 +23,7 @@ public class SystemTestPO extends BaseTest{
     public void testInvalidLogin(){
         driver.get("http://localhost:8080/");
         LoginPO loginPage = new LoginPO(driver);
+        assertEquals("Hi, Please Log-In to Mentcare system", loginPage.getMessage());
 
         loginPage.enterCredentials("admin", "pen");
         InvalidLoginPO reLogPage = loginPage.invalidSubmit();
@@ -38,21 +39,5 @@ public class SystemTestPO extends BaseTest{
         HomePO homePage = reLogPage1.validSubmit();
 
         assertEquals("Hi, Welcome to Mentcare system", homePage.getMessage());
-    }
-
-    @Test
-    public void testAddPerson(){
-        driver.get("http://localhost:8080/");
-        EmptyListPO entryPage = new EmptyListPO(driver);
-        assertEquals("People list", entryPage.getMessage());
-
-        AddPersonPO addPage = entryPage.addPerson();
-        assertEquals("Create a new record", addPage.getMessage());
-
-        EmptyListPO listPage = addPage.enterName("mariano", "ceccato");
-        assertEquals("People list", listPage.getMessage());
-        assertEquals(2, listPage.getTableSize());
-        assertEquals("mariano", listPage.getFirstRowName());
-
     }
 }

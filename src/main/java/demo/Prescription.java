@@ -18,6 +18,7 @@ public class Prescription {
     private String comment;
 
 
+
     protected Prescription() {}
 
     public Prescription(Long idPatient, Long idTreatment, String type, String comment) {

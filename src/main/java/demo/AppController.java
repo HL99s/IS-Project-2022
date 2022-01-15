@@ -19,7 +19,7 @@ public class AppController {
     @Autowired
     private PrescriptionRepository repositoryPrescription;
 
-    private void initReporitories(){
+    private void initRepo(){
         repositoryPatient.save(new Patient("marcello", "de vincenzi", LocalDate.of(1999,12,7), "gazzo vigarello"));
         repositoryPatient.save(new Patient("giacomo", "gatto", LocalDate.of(1999,9,14), "cerea"));
         repositoryPatient.save(new Patient("mario", "rossi", LocalDate.of(1989,5,10), "verona"));
@@ -30,8 +30,8 @@ public class AppController {
         repositoryPatient.save(new Patient("rosa", "fiore", LocalDate.of(1985,2,5), "verona"));
         repositoryPatient.save(new Patient("luca", "salvo", LocalDate.of(1997,8,8), "brescia"));
         repositoryPatient.save(new Patient("mario", "pasqua", LocalDate.of(1996,7,13), "verona"));
-        repositoryTreatment.save(new Treatment(1L,"T1", new Date(1,1,1,1,1,1)));
-        repositoryTreatment.save(new Treatment(1L,"T2", new Date()));
+        repositoryTreatment.save(new Treatment(1L,"T1", new Date(122,0,10,15,0,0)));
+        repositoryTreatment.save(new Treatment(1L,"T2", new Date(122,0,11,15,0,0)));
         repositoryTreatment.save(new Treatment(2L,"T2", new Date()));
         repositoryTreatment.save(new Treatment(2L,"T4", new Date()));
         repositoryTreatment.save(new Treatment(3L,"T3", new Date()));
@@ -44,11 +44,12 @@ public class AppController {
         repositoryTreatment.save(new Treatment(8L,"T3", new Date()));
 
         repositoryPrescription.save(new Prescription(1L, 1L,"prova","ciao"));
+        repositoryPrescription.save(new Prescription(1L, 2L,"prova1","ciao1"));
     }
 
     @RequestMapping("/")
     public String index(){
-        initReporitories();
+        initRepo();
         return "login";
     }
 
@@ -60,7 +61,7 @@ public class AppController {
         if(name.equals(username) && pass.equals(password))
             return "home";
         else
-            return "login";
+            return "loginFailed";
     }
 
     @RequestMapping("/home")
@@ -79,34 +80,86 @@ public class AppController {
         return "showPatients";
     }
 
-    @RequestMapping("/treatmentsList")
-    public String treatmentsList(Model model){
-        List<Treatment> treatments = new LinkedList<>();
-
-        for(Treatment treatment: repositoryTreatment.findAll()){
-            treatments.add(treatment);
-        }
-        model.addAttribute("treatments", treatments);
-        return "showTreatments";
-    }
-
-
-    @RequestMapping("/read")
-    public String read(
+    @RequestMapping("/patientInfo")
+    public String patientInfo(
             @RequestParam(name="id", required=true) Long id,
             Model model) {
         Optional<Patient> result = repositoryPatient.findById(id);
         if (result.isPresent()){
-            Patient Patient = result.get();
-            model.addAttribute("Patient", Patient);
-            return "read";
+            Patient patient = result.get();
+            model.addAttribute("patient", patient);
+
+            List<Prescription> prescriptions = new LinkedList<>();
+            for(Prescription p: repositoryPrescription.findByIdPatient(id)){
+                prescriptions.add(p);
+            }
+            model.addAttribute("prescriptions", prescriptions);
+
+            return "patientInfo";
         }
         else
             return "notfound";
     }
 
+    public static Date removeTime(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+    @RequestMapping("/treatmentsList")
+    public String treatmentsList(Model model){
+        List<Treatment> treatments = new LinkedList<>();
+        List<Optional <Patient>> patientsList = new ArrayList<>();
+        List<TreatmentWithPatient> completeTreatments = new LinkedList<>();
+
+        for(Treatment treatment: repositoryTreatment.findAll()){
+            treatment.setDate(removeTime(treatment.getDate()));
+            completeTreatments.add(new TreatmentWithPatient(treatment, repositoryPatient.findById(treatment.getidPatient()).get()));
+        }
+
+        model.addAttribute("completeTreatments", completeTreatments);
+        return "showTreatments";
+    }
+
+    @RequestMapping("/dailyTreatments")
+    public String dailyTreatments(Model model){
+
+        List<TreatmentWithPatient> completeTreatments = new LinkedList<>();
+        for(Treatment treatment: repositoryTreatment.findAll()){
+            if(treatment.getDate().getDate() == LocalDate.now().getDayOfMonth() &&
+                    (treatment.getDate().getMonth() + 1) == LocalDate.now().getMonthValue() &&
+                    (treatment.getDate().getYear() + 1900) == LocalDate.now().getYear()){
+
+                completeTreatments.add(new TreatmentWithPatient(treatment, repositoryPatient.findById(treatment.getidPatient()).get()));
+            }
+        }
+        model.addAttribute("completeTreatments", completeTreatments);
+        return "showDailyTreatments";
+    }
+
+    @RequestMapping("/showPrescriptions")
+    public String showPrescriptions(Model model){
+        List<Prescription> prescriptionsList = new LinkedList<>();
+        List<PrescriptionWithPatientAndTreatment> completePrescriptionsList = new ArrayList<>();
+        for(Prescription prescription: repositoryPrescription.findAll()){
+            completePrescriptionsList.add(
+                    new PrescriptionWithPatientAndTreatment(prescription,
+                            repositoryPatient.findById(prescription.getIdPatient()).get(),
+                            repositoryTreatment.findById(prescription.getIdTreatment()).get() ) );
+        }
+        model.addAttribute("completePrescriptions", completePrescriptionsList);
+
+        return "showPrescriptions";
+    }
+
     @RequestMapping("/createPage")
-    public String inputPage(){
+    public String createPage(@RequestParam(name="idTreatment", required = true) Long idTreatment, Model model){
+        model.addAttribute("idTreatment", idTreatment);
+        Optional<Treatment> treatment = repositoryTreatment.findById(idTreatment);
+        model.addAttribute("idPatient", treatment.get().getidPatient());
+
         return "inputPrescription";
     }
 
@@ -117,65 +170,49 @@ public class AppController {
             @RequestParam(name="type", required=true) String type,
             @RequestParam(name="comment", required=true) String comment) {
         repositoryPrescription.save(new Prescription(idPatient,idTreatment,type,comment));
-        return "redirect:/home";
+        return "redirect:/showPrescriptions";
     }
 
-    @RequestMapping("/edit")
-    public String edit(
+    @RequestMapping("/editPrescription")
+    public String editPrescription(
             @RequestParam(name="id", required=true) Long id,
             Model model) {
-        Optional<Patient> result = repositoryPatient.findById(id);
+        Optional<Prescription> result = repositoryPrescription.findById(id);
         if (result.isPresent()) {
-            Patient Patient = result.get();
-            model.addAttribute("Patient", Patient);
-            return "edit";
+            Prescription prescription = result.get();
+            model.addAttribute("prescription", prescription);
+            return "editPrescription";
         }
         else
             return "notfound";
     }
 
-    @RequestMapping("/update")
-    public String update(
+    @RequestMapping("/updatePrescription")
+    public String updatePrescription(
             @RequestParam(name="id", required=true) Long id,
-            @RequestParam(name="firstname", required=true) String firstname,
-            @RequestParam(name="lastname", required=true) String lastname,
-            Model model) {
-        Optional<Patient> result = repositoryPatient.findById(id);
+            @RequestParam(name="idPatient", required=true) Long idPatient,
+            @RequestParam(name="idTreatment", required=true) Long idTreatment,
+            @RequestParam(name="type", required=true) String type,
+            @RequestParam(name="comment", required=true) String comment) {
+        Optional<Prescription> result = repositoryPrescription.findById(id);
         if (result.isPresent()) {
-            repositoryPatient.delete(result.get());
-            //Patient Patient = new Patient(firstname,lastname);
-            //repositoryPatient.save(Patient);
-            return "redirect:/list";
+            repositoryPrescription.delete(result.get());
+            repositoryPrescription.save(new Prescription(idPatient,idTreatment,type,comment));
+            return "redirect:/showPrescriptions";
         }
         else
             return "notfound";
     }
 
-   @RequestMapping("/delete")
-    public String delete(
+    @RequestMapping("/deletePrescription")
+    public String deletePrescription(
             @RequestParam(name="id", required=true) Long id) {
-        Optional<Patient> result = repositoryPatient.findById(id);
+        Optional<Prescription> result = repositoryPrescription.findById(id);
         if (result.isPresent()){
-            repositoryPatient.delete(result.get());
-            return "redirect:/list";
+            repositoryPrescription.delete(result.get());
+            return "redirect:/showPrescriptions";
         }
         else
             return "notfound";
     }
-
-
-    /*@RequestMapping("/show1")
-    public String show1(
-            @RequestParam(name="id", required=true) Long id,
-            Model model) {
-        Optional<Patient> result = repositoryPatient.findById(id);
-        if (result.isPresent()){
-            Patient Patient = result.get();
-            model.addAttribute("Patient", Patient);
-            return "show1";
-        }
-        else
-            return "notfound";
-    }*/
-
 }
