@@ -17,10 +17,34 @@ public class ShowPrescriptionsPO extends PageObject{
     @FindBy(tagName = "table")
     private WebElement table;
 
-    @FindBy(xpath = "//table//tbody//td[2]")
+    @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[1]")
     private WebElement firstRow;
 
-    public String getFirstRowName(){
+    @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[9]/a[1]")
+    private WebElement editFirstRowLink;
+
+    @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[10]/a[1]")
+    private WebElement deleteFirstRowLink;
+
+    @FindBy(xpath = "/html[1]/body[1]/form[1]/input[1]")
+    private WebElement backToHomeButton;
+
+    public HomePO backToHome(){
+        backToHomeButton.click();
+        return new HomePO(driver);
+    }
+
+    public ShowPrescriptionsPO deleteFirstRow(){
+        deleteFirstRowLink.click();
+        return new ShowPrescriptionsPO(driver);
+    }
+
+    public EditPrescriptionsPo editFirstRow(){
+        deleteFirstRowLink.click();
+        return new EditPrescriptionsPo(driver);
+    }
+
+    public String getFirstRowId(){
         return firstRow.getText();
     }
 
@@ -31,6 +55,8 @@ public class ShowPrescriptionsPO extends PageObject{
     public String getMessage(){
         return titleMessage.getText();
     }
+
+
 
 
 }
