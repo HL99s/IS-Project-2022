@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ShowTreatmentsPO extends PageObject{
+public class ShowDailyTreatmentsPO extends PageObject{
 
-    public ShowTreatmentsPO(WebDriver driver){
+    public ShowDailyTreatmentsPO(WebDriver driver){
         super(driver);
     }
 
@@ -24,7 +24,7 @@ public class ShowTreatmentsPO extends PageObject{
     private WebElement backToHomeButton;
 
     @FindBy(xpath = "/html[1]/body[1]/form[1]/input[1]")
-    private WebElement showDailyTreatmentsButton;
+    private WebElement showAllTreatmentsButton;
 
     @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[7]/a[1]")
     private WebElement createPrescriptionLinkFirstRow;
@@ -41,9 +41,9 @@ public class ShowTreatmentsPO extends PageObject{
         return table.findElements(By.tagName("tr")).size();
     }
 
-    public ShowDailyTreatmentsPO goToDailyTreatmentsList(){
-        showDailyTreatmentsButton.click();
-        return new ShowDailyTreatmentsPO(driver);
+    public ShowTreatmentsPO goToAllTreatmentsList(){
+        showAllTreatmentsButton.click();
+        return new ShowTreatmentsPO(driver);
     }
 
     public HomePO backToHome(){
@@ -52,9 +52,8 @@ public class ShowTreatmentsPO extends PageObject{
     }
 
     public CreatePrescriptionsPo createPrescription(){
-    createPrescriptionLinkFirstRow.click();
-    return new CreatePrescriptionsPo(driver);
+        createPrescriptionLinkFirstRow.click();
+        return new CreatePrescriptionsPo(driver);
     }
-
 
 }

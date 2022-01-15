@@ -20,6 +20,12 @@ public class ShowPrescriptionsPO extends PageObject{
     @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[1]")
     private WebElement firstRow;
 
+    @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[3]/td[1]")
+    private WebElement newRow;
+
+    @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[2]/td[1]")
+    private WebElement secondRow;
+
     @FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[9]/a[1]")
     private WebElement editFirstRowLink;
 
@@ -40,12 +46,20 @@ public class ShowPrescriptionsPO extends PageObject{
     }
 
     public EditPrescriptionsPo editFirstRow(){
-        deleteFirstRowLink.click();
+        editFirstRowLink.click();
         return new EditPrescriptionsPo(driver);
     }
 
     public String getFirstRowId(){
         return firstRow.getText();
+    }
+
+    public String getSecondRowId(){
+        return secondRow.getText();
+    }
+    
+    public String getNewRowId(){
+        return newRow.getText();
     }
 
     public int getTableSize(){

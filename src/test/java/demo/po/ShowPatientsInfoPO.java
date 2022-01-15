@@ -32,7 +32,7 @@ public class ShowPatientsInfoPO extends PageObject{
         return new ShowPatientsPO(driver);
     }
 
-    public Integer getTableSize(){
+    public int getTableSize(){
         return table.findElements(By.tagName("tr")).size();
     }
 
