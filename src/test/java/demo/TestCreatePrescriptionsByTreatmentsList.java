@@ -45,6 +45,4 @@ public class TestCreatePrescriptionsByTreatmentsList extends BaseTest{
         assertEquals("Hi, Welcome to Mentcare system", homePage1.getMessage());
     }
 
-
-
 }
