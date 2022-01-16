@@ -44,7 +44,7 @@ public class ShowPatientsPO extends PageObject{
         return firstRowId.getText();
     }
 
-    public Integer getTableSize(){
+    public int getTableSize(){
         return table.findElements(By.tagName("tr")).size();
     }
 
