@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mentcare application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body bgcolor="#adff2f">
+<h1>Details of patient:</h1>
+<ul>
+    <li th:text="'Name: ' + ${patient.firstName} "> John </li>
+    <li th:text="'Surname: ' + ${patient.lastName} "> Smith </li>
+    <li th:text="'Birth Date: ' + ${patient.birthDate} "> 20/12/2020 </li>
+    <li th:text="'Residence: ' + ${patient.residence} "> Verona </li>
+</ul>
+
+<h1>Patient's prescriptions:</h1>
+
+<table border="5" background-color="#add8e6">
+    <thead>
+    <tr>
+        <th bgcolor="aquared">Id</th>
+        <th>Id Treatment</th>
+        <th>Type</th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each = "p: ${prescriptions}">
+            <td th:text = "${p.getId()}"> <b>10 </b></td>
+            <td th:text = "${p.getIdTreatment()}">01</td>
+            <td th:text = "${p.getType()}">New York</td>
+            <td th:text = "${p.getComment()}">New York</td>
+
+        </tr>
+    </tbody>
+</table>
+<br><br>
+
+<form action="patientsList">
+    <input type="submit" value="Back to Patients list" />
+</form>
+</body>
+</html>

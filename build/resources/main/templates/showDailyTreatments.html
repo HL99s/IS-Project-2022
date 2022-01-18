@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mentcare application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body bgcolor="#add8e6">
+<h1>Today's treatments list</h1>
+
+<table border="5" background-color="blue">
+  <thead>
+  <tr>
+    <th bgcolor="red">Id</th>
+    <th bgcolor="red">Id Patient</th>
+    <th bgcolor="red">First Name</th>
+    <th bgcolor="red">Last Name</th>
+    <th bgcolor="red">Date</th>
+    <th bgcolor="red">Type</th>
+    <th bgcolor="red">Prescription</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each = "treatment: ${completeTreatments}">
+    <td th:text = "${treatment.getTreatment().getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getPatient().getId()}"> <b>10 </b></td>
+    <td th:text = "${treatment.getPatient().getFirstName()}"> John </td>
+    <td th:text = "${treatment.getPatient().getLastName()}"> Smith </td>
+    <td th:text = "${treatment.getTreatment().getDate()}">05/06/1960</td>
+    <td th:text = "${treatment.getTreatment().getType()}"> Type1 </td>
+    <td> <a href="createPage?id=10" th:href="@{createPage(idTreatment = ${treatment.getTreatment().getId()})}">New prescription</a> </td>
+  </tbody>
+</table>
+<br><br>
+
+<form action="treatmentsList">
+  <input type="submit" value="Back to All Treatments list" />
+</form>
+<br>
+<form action="home">
+  <input type="submit" value="Back to home" />
+</form>
+
+</body>
+</html>
