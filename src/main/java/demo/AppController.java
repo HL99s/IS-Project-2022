@@ -49,7 +49,8 @@ public class AppController {
 
     @RequestMapping("/")
     public String index(){
-        initRepo();
+        if(repositoryTreatment.count() == 0 && repositoryPatient.count() == 0 && repositoryPrescription.count() == 0)
+            initRepo();
         return "login";
     }
 

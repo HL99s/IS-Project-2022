@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mentcare application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body bgcolor="#add8e6">
+<h1>Edit a Prescription</h1>
+
+<form action="updatePrescription" method="post">
+    <input type="hidden" name="id" value="10" th:value="${prescription.id}"> <br><br>
+    IdPatient:<input type="text" name="idPatient" th:value="${prescription.idPatient}"><br><br>
+    IdTreatment:<input type="text" name="idTreatment" th:value="${prescription.idTreatment}"><br><br>
+    Type:<input type="text" name="type" th:value="${prescription.type}"><br><br>
+    Comment:<input type="text" name="comment" th:value="${prescription.comment}"><br><br>
+    <input type="submit" value="Send Request"/>
+</form>
+<br>
+
+<form action="showPrescriptions">
+    <input type="submit" value="Back to Prescriptions list" />
+</form>
+</body>
+</html>
