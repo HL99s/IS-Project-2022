@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b0d12b-f804-4b75-9c47-a5e533a0f1a8" name="Changes" comment="bo" />
+    <list default="true" id="c4b0d12b-f804-4b75-9c47-a5e533a0f1a8" name="Changes" comment="bo 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/demo/po/ShowTreatmentsPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/demo/po/ShowTreatmentsPO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +171,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.IS-Project-2022 [bootRun]" />
-        <item itemvalue="Gradle.IS-Project-2022 [bootRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +193,8 @@
       <workItem from="1642083110937" duration="9000" />
       <workItem from="1642260482107" duration="4199000" />
       <workItem from="1642342725475" duration="1540000" />
-      <workItem from="1642516202204" duration="612000" />
+      <workItem from="1642516202204" duration="3188000" />
+      <workItem from="1642610916210" duration="3199000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1641922381043</created>
@@ -228,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642516821054</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bo 2">
+      <created>1642516860459</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642516860459</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +273,8 @@
     <MESSAGE value="Base selenium test done" />
     <MESSAGE value="Patients, treatments PO" />
     <MESSAGE value="bo" />
-    <option name="LAST_COMMIT_MESSAGE" value="bo" />
+    <MESSAGE value="bo 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bo 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
