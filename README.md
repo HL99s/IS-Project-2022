@@ -77,3 +77,53 @@ può modificarne una cliccando al link "*Edit*" presente accanto a ciascuna di e
    Una volta cliccato il link, il medico elimina la prescrizione.
 
 ##Test
+
+I test sono stati implementati usando il metodo dei PageObject per facilitarne la comprensione.
+Sono stati implementati casi di test per ogni scenario per verificare che tutte le funzionalità sviluppate 
+funzionino correttamente.
+
+I casi di test da noi implementati sono:
+
+1.<ins>Log-in nel sistema</ins>:
+* "*TestValidLogin*": Si è testato un accesso valido al sistema tramite l'inserimento 
+di credenziali corrette (Username: admin, Password: admin). 
+* "*TestInvalidLogin*": Si è testato un accesso invalido al sistema tramite l'inserimento
+  di credenziali errate seguito da un accesso valido con inserimento di credenziali corrette. 
+
+2.<ins>Visualizza informazioni dei pazienti</ins>: 
+* "*TestHomePatientsButton*": Dopo aver effettuato il log-in, si è testato il corretto indirizzamento alla lista
+dei pazienti.
+* "*TestShowInfoPatients*": Oltre alle verifiche del precedente test, si è testata la corretta 
+visualizzazione della lista dei pazienti. Inoltre si è verificata la corretta visualizzazione 
+dei dati del primo paziente.
+
+3.<ins>Visualizza lista dei trattamenti</ins>:
+* "*TestHomeTreatmentsButton*": Dopo aver effettuato il log-in, si è testato il corretto indirizzamento alla lista
+  dei trattamenti.
+* "*TestShowTreatments*": Oltre alle verifiche del precedente test, si è testato la corretta
+  visualizzazione della lista completa dei trattamenti.
+* "*TestShowDailyTreatments*": Oltre alle verifiche effettuate nel precedente test, si è testato il corretto
+indirizzamento e visualizzazione della lista dei trattamenti previsti in giornata.
+
+4.<ins>Visualizza lista delle prescrizioni</ins>:
+* "*TestHomePrescritionsButton*": Dopo aver effettuato il log-in, si è testato il corretto indirizzamento alla lista
+   delle prescrizioni.
+
+5.<ins>Creazione prescrizione</ins>:
+* "*TestCreatePrescriptionsByTreatmentsList*": Dopo aver verificato la visualizzazione della lista completa 
+dei trattamenti, si è testata la corretta creazione di una prescrizione relativa al primo trattamento della lista.
+* "*TestCreatePrescriptionsByDailyTreatmentsList*": Dopo aver verificato la visualizzazione della lista dei trattamenti
+previsti in giornata, si è testata la corretta creazione di una prescrizione relativa al primo trattamento della lista.
+
+6.<ins>Modifica prescrizione</ins>:
+* "*TestEditPrescription*": Dopo aver verificato la corretta visualizzazione della lista delle prescrizioni, 
+si è testata una modifica con successo alla prima di esse.
+
+7.<ins>Elimina prescrizione</ins>:
+* "*TestDeletePrescription*":  Dopo aver verificato la corretta visualizzazione della lista delle prescrizioni,
+  si è testata la corretta eliminazione del primo record.
+
+In tutti i casi di test si è verificata la corretta navigazione tra le pagine tramite l'uso dei bottoni/link.
+
+Tutti i test passano con successo se eseguiti singolarmente. Al contrario, se eseguiti tutti insieme in blocco,
+alcuni test falliscono in quanto, modificando la repository, creano inconsistenze con gli altri. 
