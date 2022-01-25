@@ -5,7 +5,6 @@ public class TreatmentWithPatient {
     private Treatment treatment;
     private Patient patient;
 
-
     public TreatmentWithPatient(Treatment treatment, Patient patient) {
         this.treatment = treatment;
         this.patient = patient;

@@ -1,14 +1,19 @@
 # IS-Project-2022(Mentcare System)
+Progetto sviluppato da:
+
+* Riccardo Bologna VR474721
+
+* Luigi Hu VR474722
 ##Introduzione
 Il progetto implementa un software di gestione di informazioni dei pazienti 
-riguardo l'ambito Mental health care.
+nell'ambito "Mental health care".
 
-Si è deciso di sviluppare la componente del software utilizzata dall'utente medico, 
+Si è deciso di sviluppare la componente del software utilizzata dall'utente "medico", 
 tramite la quale potrà gestire le prescrizioni che fornirà ai pazienti a fine trattamento.
 Si assume che le liste dei pazienti e trattamenti siano già presenti nel sistema 
 in quanto gestite da altri componenti(clinica/reception). 
 
-Il trattamento viene inteso come visita dal medico durante la quale si svolge una determinata terapia mentre
+Il trattamento viene inteso come visita dal medico durante la quale si svolge una determinata terapia, mentre
 la prescrizione viene intesa come ricetta contenente medicinali/consigli 
 fornita al paziente a fine trattamento.
 
@@ -29,14 +34,14 @@ che quella dei trattamenti previsti in giornata.
 -Il medico può creare delle prescrizioni riguardanti un determinato trattamento.
 
 -Il medico può visualizzare la lista di tutte le prescrizioni emesse 
-e per ciascuna di esse può modificarla/eliminarla a seconda delle sue esigenze.
+e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenze.
 
 ##Scenari
 
 1. <ins>Log-in nel sistema</ins>:
 Il medico per poter accedere al sistema deve inserire 
 le proprio credenziali(fornite in precedenza). Se le credenziali sono **corrette**, 
-il medico può iniziare ad usufruirne i servizi.
+il medico può iniziare ad utilizzare il sistema.
 Se le credenziali sono **sbagliate**, il sistema richiede di inserire nuovamente le credenziali.
 
 
@@ -74,7 +79,7 @@ può modificarne una cliccando al link "*Edit*" presente accanto a ciascuna di e
 
 7. <ins>Elimina prescrizione</ins>: Durante la visualizzazione della lista delle prescrizioni il medico
    può eliminarne una cliccando al link "*Delete*" presente accanto a ciascuna di esse.
-   Una volta cliccato il link, il medico elimina la prescrizione.
+   Una volta cliccato il link, la prescrizione viene rimossa.
 
 ##Test
 
@@ -100,7 +105,7 @@ dei dati del primo paziente.
 3.<ins>Visualizza lista dei trattamenti</ins>:
 * "*TestHomeTreatmentsButton*": Dopo aver effettuato il log-in, si è testato il corretto indirizzamento alla lista
   dei trattamenti.
-* "*TestShowTreatments*": Oltre alle verifiche del precedente test, si è testato la corretta
+* "*TestShowTreatments*": Oltre alle verifiche del precedente test, si è testata la corretta
   visualizzazione della lista completa dei trattamenti.
 * "*TestShowDailyTreatments*": Oltre alle verifiche effettuate nel precedente test, si è testato il corretto
 indirizzamento e visualizzazione della lista dei trattamenti previsti in giornata.
@@ -117,7 +122,7 @@ previsti in giornata, si è testata la corretta creazione di una prescrizione re
 
 6.<ins>Modifica prescrizione</ins>:
 * "*TestEditPrescription*": Dopo aver verificato la corretta visualizzazione della lista delle prescrizioni, 
-si è testata una modifica con successo alla prima di esse.
+si è testata una modifica alla prima di esse.
 
 7.<ins>Elimina prescrizione</ins>:
 * "*TestDeletePrescription*":  Dopo aver verificato la corretta visualizzazione della lista delle prescrizioni,
@@ -127,3 +132,11 @@ In tutti i casi di test si è verificata la corretta navigazione tra le pagine t
 
 Tutti i test passano con successo se eseguiti singolarmente. Al contrario, se eseguiti tutti insieme in blocco,
 alcuni test falliscono in quanto, modificando la repository, creano inconsistenze con gli altri. 
+
+Il test coverage risulta essere:
+
+![coverage](./images/coverage.png)
+
+Il coverage testing dei metodi dell'AppController risulta essere dell'80% a causa del problema sopra citato.
+
+
