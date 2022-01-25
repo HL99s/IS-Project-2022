@@ -30,7 +30,7 @@ public class TestCreatePrescriptionsByDailyTreatmentsList extends BaseTest{
 
         assertEquals("Create a new Prescription", createPage.getMessage());
 
-        createPage.enterData("T28", "COMMENTO AHAH");
+        createPage.enterData("T28", "Prova 1");
 
         ShowPrescriptionsPO prescriptionsPage = createPage.validSubmit();
 

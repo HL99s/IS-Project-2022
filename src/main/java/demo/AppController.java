@@ -20,8 +20,8 @@ public class AppController {
     private PrescriptionRepository repositoryPrescription;
 
     private void initRepo(){
-        repositoryPatient.save(new Patient("marcello", "de vincenzi", LocalDate.of(1999,12,7), "gazzo vigarello"));
-        repositoryPatient.save(new Patient("giacomo", "gatto", LocalDate.of(1999,9,14), "cerea"));
+        repositoryPatient.save(new Patient("marco", "vincenzi", LocalDate.of(1999,12,7), "mantova"));
+        repositoryPatient.save(new Patient("franco", "gattoni", LocalDate.of(1999,9,14), "bergamo"));
         repositoryPatient.save(new Patient("mario", "rossi", LocalDate.of(1989,5,10), "verona"));
         repositoryPatient.save(new Patient("fabio", "bianchi", LocalDate.of(1974,6,30), "mantova"));
         repositoryPatient.save(new Patient("alessio", "verdi", LocalDate.of(1996,11,15), "brescia"));
@@ -43,8 +43,8 @@ public class AppController {
         repositoryTreatment.save(new Treatment(6L,"T4", new Date()));
         repositoryTreatment.save(new Treatment(8L,"T3", new Date()));
 
-        repositoryPrescription.save(new Prescription(1L, 1L,"prova","ciao"));
-        repositoryPrescription.save(new Prescription(1L, 2L,"prova1","ciao1"));
+        repositoryPrescription.save(new Prescription(1L, 1L,"Medicina1","Consigli2"));
+        repositoryPrescription.save(new Prescription(1L, 2L,"Medicina2","Consigli1"));
     }
 
     @RequestMapping("/")

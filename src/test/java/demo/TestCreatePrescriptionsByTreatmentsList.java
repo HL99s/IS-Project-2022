@@ -32,7 +32,7 @@ public class TestCreatePrescriptionsByTreatmentsList extends BaseTest{
 
         CreatePrescriptionsPo createPage1 = treatmentsPage.createPrescription();
 
-        createPage1.enterData("T28", "COMMENTO AHAH");
+        createPage1.enterData("T28", "Commento prova");
 
         ShowPrescriptionsPO prescriptionsPage = createPage1.validSubmit();
 
