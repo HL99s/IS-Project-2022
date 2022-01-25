@@ -4,7 +4,7 @@ Progetto sviluppato da:
 * Riccardo Bologna VR474721
 
 * Luigi Hu VR474722
-##Introduzione
+## Introduzione
 Il progetto implementa un software di gestione di informazioni dei pazienti 
 nell'ambito "Mental health care".
 
@@ -17,7 +17,7 @@ Il trattamento viene inteso come visita dal medico durante la quale si svolge un
 la prescrizione viene intesa come ricetta contenente medicinali/consigli 
 fornita al paziente a fine trattamento.
 
-##Requisiti
+## Requisiti
 
 Il sistema deve essere in grado di identificare il medico per permettergli di usare le funzionalità implementate.
 
@@ -36,7 +36,7 @@ che quella dei trattamenti previsti in giornata.
 -Il medico può visualizzare la lista di tutte le prescrizioni emesse 
 e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenze.
 
-##Scenari
+## Scenari
 
 1. <ins>Log-in nel sistema</ins>:
 Il medico per poter accedere al sistema deve inserire 
@@ -81,7 +81,7 @@ può modificarne una cliccando al link "*Edit*" presente accanto a ciascuna di e
    può eliminarne una cliccando al link "*Delete*" presente accanto a ciascuna di esse.
    Una volta cliccato il link, la prescrizione viene rimossa.
 
-##Test
+## Test
 
 I test sono stati implementati usando il metodo dei PageObject per facilitarne la comprensione.
 Sono stati implementati casi di test per ogni scenario per verificare che tutte le funzionalità sviluppate 
