@@ -127,3 +127,7 @@ In tutti i casi di test si è verificata la corretta navigazione tra le pagine t
 
 Tutti i test passano con successo se eseguiti singolarmente. Al contrario, se eseguiti tutti insieme in blocco,
 alcuni test falliscono in quanto, modificando la repository, creano inconsistenze con gli altri. 
+
+Il coverage di tali test risulta:
+
+![coverage](/images/coverage.png)
