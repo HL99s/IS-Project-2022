@@ -1,6 +1,7 @@
 package demo.seleniumTests;
 
 import demo.seleniumTests.BaseTest;
+import demo.seleniumTests.po.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
