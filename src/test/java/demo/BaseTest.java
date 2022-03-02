@@ -24,15 +24,15 @@ public abstract class BaseTest {
         chrome_options.addArguments("--headless");
         if(SystemUtils.IS_OS_WINDOWS){
             System.setProperty("webdriver.chrome.driver",
-                    Paths.get("src/test/resources/chromedriver_win32_96/chromedriver.exe").toString());
+                    Paths.get("src/test/resources/chromedriver_win32_98/chromedriver.exe").toString());
         }
         else if (SystemUtils.IS_OS_MAC){
             System.setProperty("webdriver.chrome.driver",
-                    Paths.get("src/test/resources/chromedriver_mac64_96/chromedriver").toString());
+                    Paths.get("src/test/resources/chromedriver_mac64_98/chromedriver").toString());
         }
         else if (SystemUtils.IS_OS_LINUX){
             System.setProperty("webdriver.chrome.driver",
-                    Paths.get("src/test/resources/chromedriver_linux64_96/chromedriver").toString());
+                    Paths.get("src/test/resources/chromedriver_linux64_98/chromedriver").toString());
         }
         if (driver == null)
             driver = new ChromeDriver(chrome_options);
