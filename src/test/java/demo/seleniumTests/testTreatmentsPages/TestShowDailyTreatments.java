@@ -1,9 +1,10 @@
-package demo.seleniumTests;
+package demo.seleniumTests.testTreatmentsPages;
 
 import demo.seleniumTests.po.HomePO;
 import demo.seleniumTests.po.LoginPO;
 import demo.seleniumTests.po.ShowDailyTreatmentsPO;
 import demo.seleniumTests.po.ShowTreatmentsPO;
+import demo.seleniumTests.BaseTest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

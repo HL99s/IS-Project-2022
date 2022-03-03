@@ -1,8 +1,9 @@
-package demo.seleniumTests;
+package demo.seleniumTests.testLoginPage;
 
 import demo.seleniumTests.po.HomePO;
 import demo.seleniumTests.po.InvalidLoginPO;
 import demo.seleniumTests.po.LoginPO;
+import demo.seleniumTests.BaseTest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,17 +1,15 @@
-package demo.seleniumTests;
+package demo.seleniumTests.testHomePage;
 
-import demo.seleniumTests.po.HomePO;
-import demo.seleniumTests.po.LoginPO;
-import demo.seleniumTests.po.ShowDailyTreatmentsPO;
-import demo.seleniumTests.po.ShowTreatmentsPO;
+import demo.seleniumTests.po.*;
+import demo.seleniumTests.BaseTest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestShowTreatments extends BaseTest {
+public class TestHomeTreatmentsButton extends BaseTest {
 
     @Test
-    public void testShowTreatments(){
+    public void testTreatmentsButton(){
         driver.get("http://localhost:8080/");
         LoginPO loginPage = new LoginPO(driver);
         assertEquals("Hi, Please Log-In to Mentcare system", loginPage.getMessage());
@@ -24,13 +22,6 @@ public class TestShowTreatments extends BaseTest {
         ShowTreatmentsPO treatmentsPage = homePage.showTreatmentsSubmit();
 
         assertEquals("Treatments list", treatmentsPage.getMessage());
-        assertEquals(13, treatmentsPage.getTableSize());
-        assertEquals("1", treatmentsPage.getFirstRowId());
-
-        HomePO homePage1 = treatmentsPage.backToHome();
-
-        assertEquals("Hi, Welcome to Mentcare system", homePage1.getMessage());
     }
-
 
 }

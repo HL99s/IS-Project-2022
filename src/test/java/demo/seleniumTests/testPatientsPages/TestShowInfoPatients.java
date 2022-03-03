@@ -1,7 +1,7 @@
-package demo.seleniumTests;
+package demo.seleniumTests.testPatientsPages;
 
-import demo.seleniumTests.BaseTest;
 import demo.seleniumTests.po.*;
+import demo.seleniumTests.BaseTest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

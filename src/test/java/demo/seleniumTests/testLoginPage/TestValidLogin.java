@@ -1,15 +1,16 @@
-package demo.seleniumTests;
+package demo.seleniumTests.testLoginPage;
 
+import demo.seleniumTests.po.HomePO;
+import demo.seleniumTests.po.LoginPO;
 import demo.seleniumTests.BaseTest;
-import demo.seleniumTests.po.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestHomePrescriptionsButton extends BaseTest {
+public class TestValidLogin extends BaseTest {
 
     @Test
-    public void testPrescriptionsButton(){
+    public void testValidLogin(){
         driver.get("http://localhost:8080/");
         LoginPO loginPage = new LoginPO(driver);
         assertEquals("Hi, Please Log-In to Mentcare system", loginPage.getMessage());
@@ -18,9 +19,6 @@ public class TestHomePrescriptionsButton extends BaseTest {
         HomePO homePage = loginPage.validSubmit();
 
         assertEquals("Hi, Welcome to Mentcare system", homePage.getMessage());
-
-        ShowPrescriptionsPO prescriptionsPage = homePage.showPrescriptionsSubmit();
-
-        assertEquals("Prescriptions list", prescriptionsPage.getMessage());
     }
+
 }
