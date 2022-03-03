@@ -1,5 +1,13 @@
 package demo;
 
+import demo.Patient.Patient;
+import demo.Patient.PatientRepository;
+import demo.Prescription.Prescription;
+import demo.Prescription.PrescriptionRepository;
+import demo.Prescription.PrescriptionWithPatientAndTreatment;
+import demo.Treatment.Treatment;
+import demo.Treatment.TreatmentRepository;
+import demo.Treatment.TreatmentWithPatient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
