@@ -17,10 +17,6 @@ public class Prescription {
     private String type;
     private String comment;
 
-
-
-    protected Prescription() {}
-
     public Prescription(Long idPatient, Long idTreatment, String type, String comment) {
         this.idPatient = idPatient;
         this.idTreatment = idTreatment;
@@ -34,6 +30,10 @@ public class Prescription {
 
     public Long getIdPatient() {
         return idPatient;
+    }
+
+    public void setIdPatient(Long idPatient) {
+        this.idPatient = idPatient;
     }
 
     public Long getIdTreatment(){return idTreatment;}

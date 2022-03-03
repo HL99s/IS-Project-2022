@@ -36,7 +36,7 @@ che quella dei trattamenti previsti in giornata.
 -Il medico può visualizzare la lista di tutte le prescrizioni emesse 
 e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenze.
 
-## Scenari
+## Scenari (Work in progress...)
 
 1. <ins>Log-in nel sistema</ins>:
 Il medico per poter accedere al sistema deve inserire 
@@ -81,7 +81,7 @@ può modificarne una cliccando al link "*Edit*" presente accanto a ciascuna di e
    può eliminarne una cliccando al link "*Delete*" presente accanto a ciascuna di esse.
    Una volta cliccato il link, la prescrizione viene rimossa.
 
-## Test
+## Test (TODO: add unit tests)
 
 I test sono stati implementati usando il metodo dei PageObject per facilitarne la comprensione.
 Sono stati implementati casi di test per ogni scenario per verificare che tutte le funzionalità sviluppate 

@@ -18,13 +18,23 @@ public class Patient {
     private LocalDate birthDate;
     private String residence;
 
-    protected Patient() {}
 
     public Patient(String firstName, String lastName, LocalDate birthDate, String residence) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.residence = residence;
+    }
+
+    public Patient(Long id, String firstName, String lastName, LocalDate birthDate, String residence) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.residence = residence;
+    }
+
+    public Patient() {
     }
 
     public Long getId() {
@@ -34,6 +44,8 @@ public class Patient {
     public String getFirstName() {
         return firstName;
     }
+
+    public void setFirstName(String firstName){this.firstName = firstName;}
 
     public String getLastName() {
         return lastName;

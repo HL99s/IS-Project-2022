@@ -16,19 +16,27 @@ public class Treatment {
     private String type;
     private Date date;
 
-    protected Treatment() {}
-
     public Treatment(Long idPatient, String type, Date date) {
         this.idPatient = idPatient;
         this.type = type;
         this.date = date;
     }
 
+    public Treatment(Long id, Long idPatient, String type, Date date) {
+        this.id = id;
+        this.idPatient = idPatient;
+        this.type = type;
+        this.date = date;
+    }
+
+    public Treatment() {
+    }
+
     public Long getId() {
         return id;
     }
 
-    public Long getidPatient() {
+    public Long getIdPatient() {
         return idPatient;
     }
 
