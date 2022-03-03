@@ -1,5 +1,13 @@
 package demo;
 
+import demo.Patient.Patient;
+import demo.Patient.PatientRepository;
+import demo.Prescription.Prescription;
+import demo.Prescription.PrescriptionRepository;
+import demo.Prescription.PrescriptionWithPatientAndTreatment;
+import demo.Treatment.Treatment;
+import demo.Treatment.TreatmentRepository;
+import demo.Treatment.TreatmentWithPatient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -115,7 +123,7 @@ public class AppController {
 
         for(Treatment treatment: repositoryTreatment.findAll()){
             treatment.setDate(removeTime(treatment.getDate()));
-            completeTreatments.add(new TreatmentWithPatient(treatment, repositoryPatient.findById(treatment.getidPatient()).get()));
+            completeTreatments.add(new TreatmentWithPatient(treatment, repositoryPatient.findById(treatment.getIdPatient()).get()));
         }
 
         model.addAttribute("completeTreatments", completeTreatments);
@@ -131,7 +139,7 @@ public class AppController {
                     (treatment.getDate().getMonth() + 1) == LocalDate.now().getMonthValue() &&
                     (treatment.getDate().getYear() + 1900) == LocalDate.now().getYear()){
 
-                completeTreatments.add(new TreatmentWithPatient(treatment, repositoryPatient.findById(treatment.getidPatient()).get()));
+                completeTreatments.add(new TreatmentWithPatient(treatment, repositoryPatient.findById(treatment.getIdPatient()).get()));
             }
         }
         model.addAttribute("completeTreatments", completeTreatments);
@@ -156,7 +164,7 @@ public class AppController {
     public String createPage(@RequestParam(name="idTreatment", required = true) Long idTreatment, Model model){
         model.addAttribute("idTreatment", idTreatment);
         Optional<Treatment> treatment = repositoryTreatment.findById(idTreatment);
-        model.addAttribute("idPatient", treatment.get().getidPatient());
+        model.addAttribute("idPatient", treatment.get().getIdPatient());
 
         return "inputPrescription";
     }
