@@ -24,6 +24,18 @@ public class Prescription {
         this.comment = comment;
     }
 
+    public Prescription(Long id, Long idPatient, Long idTreatment, String type, String comment) {
+        this.id = id;
+        this.idPatient = idPatient;
+        this.idTreatment = idTreatment;
+        this.type = type;
+        this.comment = comment;
+    }
+
+    public Prescription() {
+
+    }
+
     public Long getId() {
         return id;
     }
