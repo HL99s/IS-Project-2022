@@ -36,54 +36,98 @@ che quella dei trattamenti previsti in giornata.
 -Il medico può visualizzare la lista di tutte le prescrizioni emesse 
 e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenze.
 
-## Scenari (Work in progress...)
-
+## Scenari
 1. <ins>Log-in nel sistema</ins>:
-Il medico per poter accedere al sistema deve inserire 
-le proprio credenziali(fornite in precedenza). Se le credenziali sono **corrette**, 
-il medico può iniziare ad utilizzare il sistema.
-Se le credenziali sono **sbagliate**, il sistema richiede di inserire nuovamente le credenziali.
 
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | il medico vuole accedere al sistema per usufruire dei servizi offerti. Per accedere al sistema deve inserire le proprio credenziali. Le credenziali sono state fornite in precedenza dai gestori del sistema.
+   Uso corretto| Il medico accede correttamente al sistema se le credenziali da lui inserite sono corrette. Se le credenziali sono errate, il sistema richiede di inserire nuovamente le credenziali.
+   Potenziali problemi | ---
+   Altre attività | ---
+   Fine scenario| Il medico ha effettuato correttamente l'accesso e può usufruire dei servizi offerti dal sistema.
 
-2. <ins>Visualizza informazioni dei pazienti</ins>: Dopo aver effettuato l'accesso, 
-il medico può schiacciare il bottone "*Patients*" per visualizzare la lista di tutti i suoi pazienti. 
-Inoltre può visualizzare in dettaglio le informazioni di un determinato paziente e le relative prescrizioni
-cliccando il link "*Show infos*" presente accanto ad ogni paziente. 
-Sono presenti anche dei bottoni che permettono la navigazione tra le pagine sopracitate.
+2. <ins>Visualizza informazioni dei pazienti</ins>:
 
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | Il medico vuole visualizzare le informazioni dei suoi pazienti e deve aver già fatto l'accesso al sistema. 
+   Uso corretto| Il medico schiaccia il bottone "*Patients*" per visualizzare la lista di tutti i suoi pazienti. Inoltre può visualizzare in dettaglio le informazioni di un determinato paziente e le relative prescrizioni cliccando il link "*Show infos*" presente accanto ad ogni paziente.
+   Potenziali problemi | ------
+   Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
+   Fine scenario| Il medico visualizza tutte le informazioni dei suoi pazienti.
 
-3. <ins>Visualizza lista dei trattamenti</ins>: Dopo aver effettuato l'accesso,
-   il medico può schiacciare il bottone "*Treatments*" per visualizzare la lista di tutti i trattamenti. 
-Inoltre può visualizzare la lista dei trattamenti giornalieri tramite il bottone "*Show today's treatments*".
-   Sono presenti anche qui dei bottoni che permettono la navigazione tra le pagine sopracitate.
+3. <ins>Visualizza lista dei trattamenti</ins>:
 
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | Il medico vuole visualizzare la lista dei trattamenti dei suoi pazienti e deve aver già fatto l'accesso al sistema.
+   Uso corretto| Il medico schiaccia il bottone "*Treatments*" per visualizzare la lista di tutti i trattamenti. Inoltre può visualizzare la lista dei trattamenti giornalieri tramite il bottone "*Show today's treatments*".
+   Potenziali problemi | ----
+   Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
+   Fine scenario| Il medico visualizza la lista completa/giornaliera dei trattamenti dei suoi pazienti.
 
-4. <ins>Visualizza lista delle prescrizioni</ins>: Dopo aver effettuato l'accesso,
-   il medico può schiacciare il bottone "*Prescriptions*" per visualizzare la lista di tutte le prescrizioni.
-   Sono presenti anche qui dei bottoni che permettono la navigazione tra le pagine sopracitate.
+4. <ins>Visualizza lista delle prescrizioni</ins>:
 
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | Il medico vuole visualizzare la lista delle prescrizioni dei suoi pazienti e deve aver già fatto l'accesso al sistema.
+   Uso corretto| Il medico schiaccia il bottone "*Prescriptions*" per visualizzare la lista di tutte le prescrizioni.
+   Potenziali problemi | ----
+   Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
+   Fine scenario| Il medico visualizza la lista delle prescrizioni fornite ai suoi pazienti.
 
-5. <ins>Creazione prescrizione</ins>: Durante la visualizzazione della lista dei trattamenti(totali o giornalieri)
-il medico può creare una prescrizione cliccando al link "*New prescription*" presente accanto ad ogni trattamento.
-Una volta cliccato il link, il medico deve inserire i dati della prescrizione (medicinali/suggerimenti)
-e confermare la creazione tramite il bottone "*Send Request*". 
-Sono presenti anche qui dei bottoni che permettono la navigazione tra le pagine sopracitate.
+5. <ins>Creazione prescrizione</ins>:
 
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | Il medico vuole creare una prescrizione a un suo paziente e deve aver già fatto l'accesso al sistema.
+   Uso corretto| Visualizzando la lista dei trattamenti(totali o giornalieri), il medico può creare una prescrizione cliccando al link "*New prescription*" presente accanto ad ogni trattamento. Una volta cliccato il link, il medico deve inserire i dati della prescrizione(medicinali/suggerimenti) e confermare la creazione tramite il bottone "*Send Request*".
+   Potenziali problemi | ----
+   Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
+   Fine scenario| Il medico crea correttamente la prescrizione al suo paziente e viene, poi, indirizzato alla lista delle prescrizioni in modo da poterla visualizzare.
    
-6. <ins>Modifica prescrizione</ins>: Durante la visualizzazione della lista delle prescrizioni il medico 
-può modificarne una cliccando al link "*Edit*" presente accanto a ciascuna di esse.
-   Una volta cliccato il link, il medico può modificare i dati della prescrizione
-   e confermare la modifica tramite il bottone "*Send Request*".
-   Sono presenti anche qui dei bottoni che permettono la navigazione tra le pagine sopracitate.
+6. <ins>Modifica prescrizione</ins>: 
 
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | Il medico vuole modificare una prescrizione fatta a un suo paziente e deve aver già fatto l'accesso al sistema.
+   Uso corretto| Visualizzando la lista delle prescrizioni il medico può modificarle cliccando al link "*Edit*" presente accanto a ciascuna di esse. Una volta cliccato il link, il medico può modificare i dati della prescrizione e confermare la modifica tramite il bottone "*Send Request*".
+   Potenziali problemi | ----
+   Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
+   Fine scenario| Il medico modifica correttamente la prescrizione del suo paziente e viene, poi, indirizzato alla lista delle prescrizioni in modo da poter controllare il cambiamento.
 
-7. <ins>Elimina prescrizione</ins>: Durante la visualizzazione della lista delle prescrizioni il medico
-   può eliminarne una cliccando al link "*Delete*" presente accanto a ciascuna di esse.
-   Una volta cliccato il link, la prescrizione viene rimossa.
+7. <ins>Elimina prescrizione</ins>: 
 
-## Test (TODO: add unit tests)
+   Fasi | Descrizioni
+   ------ | ------
+   Inizio scenario | Il medico vuole eliminare una prescrizione fatta a un suo paziente e deve aver già fatto l'accesso al sistema.
+   Uso corretto| Durante la visualizzazione della lista delle prescrizioni il medico può eliminarne una cliccando al link "*Delete*" presente accanto a ciascuna di esse. Una volta cliccato il link, la prescrizione viene rimossa.
+   Potenziali problemi | ----
+   Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
+   Fine scenario| Il medico elimina correttamente la prescrizione del suo paziente.
 
-I test sono stati implementati usando il metodo dei PageObject per facilitarne la comprensione.
+## Unit tests
+
+Gli "*unit tests*" sono stati effettuati sulle classi che compongono il sistema:
+
+1.<ins>Paziente</ins>:
+* "*TestPatient*": Si è testato che tutti i metodi della classe "Patient" funzionino correttamente.
+
+2.<ins>Prescrizione</ins>:
+* "*TestPrescription*": Si è testato che tutti i metodi della classe "Prescription" funzionino correttamente.
+* "*TestPrescriptionWithPatientAndTreatment*": Si è testato che tutti i metodi della classe "PrescriptionWithPatientAndTreatment" funzionino correttamente.
+
+3.<ins>Trattamento</ins>:
+* "*TestTreatment*": Si è testato che tutti i metodi della classe "Treatment" funzionino correttamente.
+* "*TestTreatmentWithPatient*": Si è testato che tutti i metodi della classe "TreatmentWithPatient" funzionino correttamente.
+
+Il coverage degli "*unit tests*" risulta essere:
+
+![coverage](./images/coverage1.png)
+## Acceptance tests
+
+Gli "*acceptance tests*" sono stati implementati in selenium usando il metodo dei PageObject per facilitarne la comprensione.
 Sono stati implementati casi di test per ogni scenario per verificare che tutte le funzionalità sviluppate 
 funzionino correttamente.
 
@@ -133,7 +177,7 @@ In tutti i casi di test si è verificata la corretta navigazione tra le pagine t
 Tutti i test passano con successo se eseguiti singolarmente. Al contrario, se eseguiti tutti insieme in blocco,
 alcuni test falliscono in quanto, modificando la repository, creano inconsistenze con gli altri. 
 
-Il test coverage risulta essere:
+Il coverage degli "*acceptance tests*" risulta essere:
 
 ![coverage](./images/coverage.png)
 
