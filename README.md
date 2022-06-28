@@ -53,7 +53,7 @@ e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenz
    ------ | ------
    Inizio scenario | Il medico vuole visualizzare le informazioni dei suoi pazienti e deve aver già fatto l'accesso al sistema. 
    Uso corretto| Il medico schiaccia il bottone "*Patients*" per visualizzare la lista di tutti i suoi pazienti. Inoltre può visualizzare in dettaglio le informazioni di un determinato paziente e le relative prescrizioni cliccando il link "*Show infos*" presente accanto ad ogni paziente.
-   Potenziali problemi | ------
+   Potenziali problemi | La lista visualizzata potrebbe non essere aggiornata se, durante la visualizzazione, avvengono modifiche al database. Tale problema viene risolto aggiornando la pagina.
    Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
    Fine scenario| Il medico visualizza tutte le informazioni dei suoi pazienti.
 
@@ -63,7 +63,7 @@ e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenz
    ------ | ------
    Inizio scenario | Il medico vuole visualizzare la lista dei trattamenti dei suoi pazienti e deve aver già fatto l'accesso al sistema.
    Uso corretto| Il medico schiaccia il bottone "*Treatments*" per visualizzare la lista di tutti i trattamenti. Inoltre può visualizzare la lista dei trattamenti giornalieri tramite il bottone "*Show today's treatments*".
-   Potenziali problemi | ----
+   Potenziali problemi | La lista visualizzata potrebbe non essere aggiornata se, durante la visualizzazione, avvengono modifiche al database. Tale problema viene risolto aggiornando la pagina.
    Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
    Fine scenario| Il medico visualizza la lista completa/giornaliera dei trattamenti dei suoi pazienti.
 
@@ -73,7 +73,7 @@ e, per ciascuna di esse, può modificarla/eliminarla a seconda delle sue esigenz
    ------ | ------
    Inizio scenario | Il medico vuole visualizzare la lista delle prescrizioni dei suoi pazienti e deve aver già fatto l'accesso al sistema.
    Uso corretto| Il medico schiaccia il bottone "*Prescriptions*" per visualizzare la lista di tutte le prescrizioni.
-   Potenziali problemi | ----
+   Potenziali problemi | La lista visualizzata potrebbe non essere aggiornata se, durante la visualizzazione, avvengono modifiche al database. Tale problema viene risolto aggiornando la pagina.
    Altre attività | Sono presenti dei bottoni che permettono la navigazione tra le pagine.
    Fine scenario| Il medico visualizza la lista delle prescrizioni fornite ai suoi pazienti.
 
